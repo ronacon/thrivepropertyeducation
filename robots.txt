@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ronacon.github.io/thrivepropertyeducation/sitemap.xml
