@@ -13,6 +13,7 @@ Plain HTML/CSS/JS — no build step, no dependencies. Fonts are loaded from Goog
 ```
 index.html          Page markup, styles, and interaction JS (all inline)
 assets/images/       Logo and photo assets referenced by index.html
+calculator/          Built output of the thrive-budget-calculator app, served at /calculator
 robots.txt           Crawler rules
 sitemap.xml          Sitemap for search engines
 CNAME                Custom domain config for GitHub Pages
@@ -36,5 +37,5 @@ Google Tag Manager container `GTM-PZRPPTD5` is wired in `index.html` (`<head>` s
 
 ## Notes
 
-- The "Check Your Readiness" CTA and footer "Readiness Check" link currently point to a `claude.ai/public/artifacts/...` URL. Worth replacing with a permanent hosted link (e.g. a page on this domain, or the [thrive-budget-calculator](https://github.com/ronacon/thrive-budget-calculator) app) before this goes live for real traffic.
+- The "Check Your Readiness" CTA and footer "Readiness Check" link now point to `/calculator/`, which serves the built output of the [thrive-budget-calculator](https://github.com/ronacon/thrive-budget-calculator) app. That repo's `dist/` output is copied into `calculator/` here manually after each build — there's no automated sync yet, so re-copy and commit after any calculator update.
 - The email signup form (`#newsletter`) only does a client-side success message — it doesn't actually submit anywhere yet. Needs wiring to an email provider (Kajabi, Mailchimp, etc.) before relying on it to capture leads.
