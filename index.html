@@ -289,6 +289,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .email-form button:hover { background: var(--mid); }
     .form-note { font-size: 12px; color: var(--muted); }
 
+    /* Kajabi newsletter embed — override default Kajabi styling to match .email-form above */
+    #newsletter .kajabi-form__title,
+    #newsletter .kajabi-form__subtitle { display: none; }
+    #newsletter .kajabi-form__content { max-width: 400px; margin: 0 auto; }
+    #newsletter fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    #newsletter .kajabi-form__form-item { margin: 0 !important; }
+    #newsletter .kajabi-form__form-item input {
+      width: 100% !important; box-sizing: border-box !important;
+      background: var(--white) !important; border: 1px solid rgba(38,62,58,0.15) !important;
+      color: var(--ink) !important; font-family: "DM Sans", sans-serif !important;
+      font-size: 14px !important; padding: 14px 18px !important; border-radius: 3px !important;
+      outline: none !important; box-shadow: none !important; height: auto !important;
+    }
+    #newsletter .kajabi-form__form-item input::placeholder { color: rgba(42,42,42,0.3) !important; }
+    #newsletter .kajabi-form__form-item input:focus { border-color: var(--mid) !important; }
+    #newsletter .kajabi-form__btn {
+      width: 100% !important; margin-top: 4px !important;
+      background: var(--dark) !important; color: var(--white) !important;
+      font-family: "Oswald", sans-serif !important; font-size: 13px !important; font-weight: 600 !important;
+      letter-spacing: 1.5px !important; text-transform: uppercase !important;
+      padding: 14px 24px !important; border: none !important; border-radius: 3px !important;
+      cursor: pointer !important; transition: background 0.2s !important;
+    }
+    #newsletter .kajabi-form__btn:hover { background: var(--mid) !important; }
+
     /* READINESS CTA */
     .readiness-section { background: var(--dark); padding: 96px 24px; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(212,175,55,0.1); }
     .readiness-section::before {
@@ -539,12 +564,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="cta-tag">Free Weekly Tips</span>
       <h2>The things your architect will not tell you</h2>
       <p>Short, practical insights from 400+ London renovation projects. What to ask, what to watch for, and what to do before each stage begins. Straight to your inbox.</p>
-      <form class="email-form" onsubmit="handleSubscribe(event)">
-        <input type="email" id="email-input" placeholder="your@email.com" required>
-        <button type="submit">Subscribe</button>
-      </form>
+      <div id="kajabi-newsletter-embed"></div>
+      <script src="https://thrivepropertyeducation.mykajabi.com/forms/2149632375/embed.js"></script>
       <p class="form-note">No spam. Unsubscribe any time.</p>
-      <p id="form-success" style="display:none;color:var(--mid);margin-top:12px;font-size:14px;font-weight:500;">Thanks, you are on the list. First tips incoming shortly.</p>
     </div>
   </section>
 
@@ -596,12 +618,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       nav.style.background = window.scrollY > 60 ? 'rgba(15,28,24,0.98)' : 'var(--nav-bg)';
     });
 
-    // Email form
-    function handleSubscribe(e) {
-      e.preventDefault();
-      document.querySelector('.email-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }
   </script>
 
 </body>
