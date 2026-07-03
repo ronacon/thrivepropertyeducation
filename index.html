@@ -269,6 +269,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .blueprint-note { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
 
+    /* Kajabi blueprint embed — override default Kajabi styling for the dark section background */
+    #blueprint-form-wrap .kajabi-form__title,
+    #blueprint-form-wrap .kajabi-form__subtitle { display: none; }
+    #blueprint-form-wrap fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    #blueprint-form-wrap .kajabi-form__form-item { margin: 0 !important; }
+    #blueprint-form-wrap .kajabi-form__form-item input {
+      width: 100% !important; box-sizing: border-box !important;
+      background: var(--white) !important; border: 1px solid rgba(255,255,255,0.15) !important;
+      color: var(--ink) !important; font-family: "DM Sans", sans-serif !important;
+      font-size: 14px !important; padding: 14px 18px !important; border-radius: 3px !important;
+      outline: none !important; box-shadow: none !important; height: auto !important;
+    }
+    #blueprint-form-wrap .kajabi-form__form-item input::placeholder { color: rgba(42,42,42,0.3) !important; }
+    #blueprint-form-wrap .kajabi-form__form-item input:focus { border-color: var(--gold) !important; }
+    #blueprint-form-wrap .kajabi-form__btn {
+      width: 100% !important; margin-top: 4px !important;
+      background: var(--gold) !important; color: var(--nav-bg) !important;
+      font-family: "Oswald", sans-serif !important; font-size: 13px !important; font-weight: 600 !important;
+      letter-spacing: 2px !important; text-transform: uppercase !important;
+      padding: 14px 24px !important; border: none !important; border-radius: 3px !important;
+      cursor: pointer !important; transition: background 0.2s !important;
+    }
+    #blueprint-form-wrap .kajabi-form__btn:hover { background: #e0bc3e !important; }
+
     /* EMAIL CAPTURE */
     .capture-section { background: var(--cream); padding: 96px 24px; text-align: center; border-top: 1px solid rgba(38,62,58,0.08); }
     .capture-inner { max-width: 600px; margin: 0 auto; }
@@ -554,10 +578,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="blueprint-cta">
         <span class="free-badge">Free Download</span>
-        <a href="mailto:hello@thrivepropertyeducation.co.uk?subject=Blueprint%20PDF%20Request" class="btn-main">
+        <button type="button" id="blueprint-cta-btn" class="btn-main" onclick="showBlueprintForm()">
           Get the Blueprint
           <span class="btn-arrow">&rarr;</span>
-        </a>
+        </button>
+        <div id="blueprint-form-wrap" style="display:none;width:100%;max-width:320px;">
+          <div id="kajabi-blueprint-embed"></div>
+          <script src="https://thrivepropertyeducation.mykajabi.com/forms/2149632437/embed.js"></script>
+        </div>
         <span class="blueprint-note">Instant delivery. No spam.</span>
       </div>
     </div>
@@ -622,6 +650,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.addEventListener('scroll', () => {
       nav.style.background = window.scrollY > 60 ? 'rgba(15,28,24,0.98)' : 'var(--nav-bg)';
     });
+
+    // Blueprint email capture
+    function showBlueprintForm() {
+      document.getElementById('blueprint-cta-btn').style.display = 'none';
+      document.getElementById('blueprint-form-wrap').style.display = 'block';
+    }
+    // Kajabi's own button label ("Subscribe") is set in the Kajabi dashboard;
+    // retarget the text only, the underlying submit behaviour is untouched.
+    (function renameBlueprintButton() {
+      const btn = document.querySelector('#blueprint-form-wrap .kajabi-form__btn');
+      if (btn) { btn.textContent = 'Send Me the Blueprint'; return; }
+      setTimeout(renameBlueprintButton, 200);
+    })();
 
   </script>
 
