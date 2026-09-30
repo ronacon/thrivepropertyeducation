@@ -239,10 +239,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* STATS STRIP */
     .stats-strip {
       width: 100%; border-top: 1px solid rgba(212,175,55,0.12);
-      display: flex; justify-content: center; margin-top: 60px;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 60px;
       opacity: 0; animation: riseIn 0.7s ease 0.65s forwards;
     }
-    .stat { padding: 22px 60px; border-right: 1px solid rgba(212,175,55,0.1); text-align: center; }
+    .stat { padding: 22px 16px; border-right: 1px solid rgba(212,175,55,0.1); text-align: center; }
     .stat:last-child { border-right: none; }
     .stat-n { font-family: "Oswald", sans-serif; font-size: 30px; font-weight: 700; color: var(--gold); line-height: 1; letter-spacing: 1px; }
     .stat-l { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; }
@@ -450,8 +450,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .stats-strip { flex-wrap: wrap; }
-      .stat { padding: 18px 28px; flex: 1 1 33%; border-right: none; border-bottom: 1px solid rgba(212,175,55,0.1); }
+      .stat { padding: 18px 8px; }
       .simon-inner { grid-template-columns: 1fr; gap: 36px; }
       .simon-photo { max-height: 400px; }
       .simon-stats { justify-content: flex-start; gap: 24px; }
@@ -465,8 +464,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .cta-pair { flex-direction: column; align-items: center; }
     }
     @media (max-width: 480px) {
-      .stat { flex: 1 1 50%; }
       .hero h1 { font-size: 36px; }
+      .stat-n { font-size: 22px; }
     }
   </style>
 </head>
@@ -523,12 +522,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="stat-l">Years Experience</div>
         </div>
         <div class="stat">
-          <div class="stat-n">W&amp;SW</div>
-          <div class="stat-l">London Focus</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n">&pound;0</div>
-          <div class="stat-l">Referral Fees. Ever.</div>
+          <div class="stat-n">LONDON</div>
+          <div class="stat-l">Renovation Specialist</div>
         </div>
       </div>
     </div>
