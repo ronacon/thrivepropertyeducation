@@ -454,6 +454,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .cta-pair .btn-main, .cta-pair .btn-outline { width: 100%; justify-content: center; }
       .offer-actions .btn-main, .offer-actions .btn-outline { width: 100%; justify-content: center; }
       .simon-cta { display: flex; justify-content: center; }
+      .readiness-inner > .btn-main, .capture-inner > .btn-main { display: flex; justify-content: center; width: 100%; }
       .email-form input { font-size: 16px; }
     }
 
@@ -684,6 +685,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <!-- BUY NOW CTA -->
+  <section class="readiness-section reveal" id="buy">
+    <div class="readiness-inner">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.55);">Buy now</div>
+      <!-- TODO: copy for this section is a first draft and has not been approved. -->
+      <h2>Start in the right <em>order</em></h2>
+      <p>Get the first steps of your renovation and know what comes next.</p>
+      <a href="#buy-placeholder" class="btn-main" data-cta="buy_now" data-cta-location="final_buy" data-product="starter">
+        Buy Now
+        <span class="btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BOOK A CALL CTA -->
+  <section class="capture-section reveal" id="book">
+    <div class="capture-inner">
+      <div class="section-eyebrow">Book a call</div>
+      <!-- TODO: copy is a first draft. The pre-call qualifier (5 questions) is not defined yet, so it is not mentioned here. -->
+      <h2>Talk it through with <em>Simon</em></h2>
+      <p>Book a call to talk through where your project stands and what to do next.</p>
+      <a href="#book-placeholder" class="btn-main" data-cta="book_call" data-cta-location="final_book">
+        Book a Call
+        <span class="btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
   <!-- READINESS CTA -->
   <section class="readiness-section reveal" id="readiness">
     <div class="readiness-inner">
@@ -718,7 +747,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-copy">&copy; 2026 Thrive Property Education. All rights reserved.</div>
   </footer>
 
-  <!-- TODO (parked): Blueprint free download section removed from the page order in the restructure. Kept here, not deleted. Decide whether it returns, or is replaced by the Starter Guide. Its Kajabi form is 2149632437.
+  <!-- TODO (parked): Blueprint free download section removed from the page order in the restructure. Kept here, not deleted. Retired: replaced by the Starter Guide (confirmed by the client). Kept only for reference. Its Kajabi form is 2149632437.
   <section class="blueprint-section reveal" id="blueprint">
     <div class="blueprint-inner">
       <div class="blueprint-text">
@@ -796,7 +825,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       nav.style.background = window.scrollY > 60 ? 'rgba(15,28,24,0.98)' : 'var(--nav-bg)';
     });
 
-    // TODO (parked): Blueprint form helpers, unused while the Blueprint section is parked.
+    // TODO (parked): Blueprint form helpers. The Blueprint is retired (replaced by the Starter Guide) and is kept only for reference.
     // renameBlueprintButton() polled every 200ms and would never stop with the section gone, so it is disabled.
     // function showBlueprintForm() {
     //   document.getElementById('blueprint-cta-btn').style.display = 'none';
