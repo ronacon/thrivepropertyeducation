@@ -115,6 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --white:     #ffffff;
       --ink:       #2a2a2a;
       --muted:     #6b6b6b;
+      --red:       #c0262d; /* Coming soon ribbon only. Not a brand colour, swap here. */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -332,6 +333,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .offer-card .btn-outline { color: var(--dark); border-color: rgba(38,62,58,0.35); }
     .offer-card .btn-outline:hover { color: var(--mid); border-color: var(--mid); }
 
+    /* Coming soon corner ribbon (HMO card) */
+    .offer-card.coming-soon { overflow: hidden; }
+    .offer-card.coming-soon h3 { margin-top: 40px; }
+    .ribbon {
+      position: absolute; top: 24px; left: -52px; width: 190px; padding: 6px 0;
+      transform: rotate(-45deg); text-align: center; z-index: 2; pointer-events: none;
+      background: var(--red); color: var(--white); box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      font-family: "Oswald", sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    }
     /* Kajabi waiting list embed inside the HMO card, styled to match the cards */
     .offer-waitlist { width: 100%; margin: 0 0 20px; }
     .offer-waitlist .kajabi-form--inline { padding: 0; margin: 0; }
@@ -625,9 +635,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="#services" class="btn-outline" data-link="booking" data-event="book_call" data-product="roadmap_residential">Book a Call</a>
           </div>
         </div>
-        <div class="offer-card">
+        <div class="offer-card coming-soon">
           <span class="offer-num">03</span>
-          <span class="offer-tag">Coming Soon</span>
+          <div class="ribbon">Coming Soon</div>
           <h3>The Renovation Roadmap HMO Edition</h3>
           <!-- TODO: no HMO description exists on the page yet. Replace this line with approved copy. -->
           <p>Join the waiting list and we will let you know when it opens.</p>
