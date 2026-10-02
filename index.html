@@ -324,6 +324,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .offer-link:hover { color: var(--mid); border-color: var(--mid); }
 
+    /* Product cards: equal height, actions pinned to the bottom, buttons full width */
+    .offer-card { display: flex; flex-direction: column; }
+    .offer-tag { align-self: flex-start; }
+    .offer-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+    .offer-card .btn-main, .offer-card .btn-outline { width: 100%; justify-content: center; padding: 15px 20px; }
+    .offer-card .btn-outline { color: var(--dark); border-color: rgba(38,62,58,0.35); }
+    .offer-card .btn-outline:hover { color: var(--mid); border-color: var(--mid); }
+
+    /* Kajabi waiting list embed inside the HMO card, styled to match the cards */
+    .offer-waitlist { width: 100%; margin: 0 0 20px; }
+    .offer-waitlist .kajabi-form--inline { padding: 0; margin: 0; }
+    .offer-waitlist .kajabi-form__title,
+    .offer-waitlist .kajabi-form__subtitle { display: none; }
+    .offer-waitlist .kajabi-form__content { max-width: none; margin: 0; padding: 0; }
+    .offer-waitlist fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .offer-waitlist .kajabi-form__form-item { margin: 0 !important; }
+    .offer-waitlist .kajabi-form__form-item input {
+      width: 100% !important; box-sizing: border-box !important;
+      background: var(--white) !important; border: 1px solid rgba(38,62,58,0.15) !important;
+      color: var(--ink) !important; font-family: "DM Sans", sans-serif !important;
+      font-size: 14px !important; padding: 14px 18px !important; border-radius: 3px !important;
+      outline: none !important; box-shadow: none !important; height: auto !important;
+    }
+    .offer-waitlist .kajabi-form__form-item input::placeholder { color: rgba(42,42,42,0.3) !important; }
+    .offer-waitlist .kajabi-form__form-item input:focus { border-color: var(--mid) !important; }
+    .offer-waitlist .kajabi-form__btn {
+      width: 100% !important; margin-top: 4px !important;
+      background: var(--dark) !important; color: var(--white) !important;
+      font-family: "Oswald", sans-serif !important; font-size: 13px !important; font-weight: 600 !important;
+      letter-spacing: 1.5px !important; text-transform: uppercase !important;
+      padding: 14px 24px !important; border: none !important; border-radius: 3px !important;
+      cursor: pointer !important; transition: background 0.2s !important;
+    }
+    .offer-waitlist .kajabi-form__btn:hover { background: var(--mid) !important; }
+
     /* BLUEPRINT */
     .blueprint-section { background: var(--dark); padding: 80px 24px; border-top: 1px solid rgba(212,175,55,0.1); }
     .blueprint-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
@@ -462,6 +497,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .email-form input { border-right: 1px solid rgba(38,62,58,0.15); border-bottom: none; border-radius: 3px 3px 0 0; }
       .email-form button { border-radius: 0 0 3px 3px; }
       .cta-pair { flex-direction: column; align-items: center; }
+      .offer-waitlist .kajabi-form__form-item input { font-size: 16px !important; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 36px; }
@@ -613,23 +649,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="offer-card">
           <span class="offer-num">01</span>
           <span class="offer-tag">Self-Study</span>
-          <h3>Renovation Roadmap Course</h3>
-          <p>The complete sequenced framework for planning and managing a London renovation. Learn what to do, when to do it, and what to watch out for at every stage.</p>
-          <a href="mailto:hello@thrivepropertyeducation.co.uk" class="offer-link">Find out more &rarr;</a>
+          <h3>Starter Guide</h3>
+          <!-- TODO: description reused from the Blueprint section. Confirm or replace. -->
+          <p>A plain-English guide to the sequencing principles that underpin every successful London renovation. What to do first, what most people leave too late, and the three decisions that determine whether a project runs or spirals.</p>
+          <div class="offer-actions">
+            <a href="#services" class="btn-main" data-link="starter_guide" data-event="buy_now" data-product="starter_guide">Buy Now</a>
+            <a href="#services" class="btn-outline" data-link="booking" data-event="book_call" data-product="starter_guide">Book a Call</a>
+          </div>
         </div>
-        <div class="offer-card featured">
+        <div class="offer-card">
           <span class="offer-num">02</span>
-          <span class="offer-tag">Most Popular</span>
-          <h3>Course Plus Virtual Oversight</h3>
-          <p>The Renovation Roadmap course combined with direct access to Simon via structured milestone calls. Education and expert oversight for your actual project.</p>
-          <a href="mailto:hello@thrivepropertyeducation.co.uk" class="offer-link">Find out more &rarr;</a>
+          <span class="offer-tag">Self-Study</span>
+          <h3>The Renovation Roadmap Residential</h3>
+          <p>The complete sequenced framework for planning and managing a London renovation. Learn what to do, when to do it, and what to watch out for at every stage.</p>
+          <div class="offer-actions">
+            <a href="https://thrivepropertyeducation.mykajabi.com/offers/MLTbs2iZ/checkout" class="btn-main" data-event="buy_now" data-product="roadmap_residential">Buy Now</a>
+            <a href="#services" class="btn-outline" data-link="booking" data-event="book_call" data-product="roadmap_residential">Book a Call</a>
+          </div>
         </div>
         <div class="offer-card">
           <span class="offer-num">03</span>
-          <span class="offer-tag">Full Service</span>
-          <h3>Virtual Project Management</h3>
-          <p>Simon oversees your renovation from start to finish as an expert in the background. You stay in control. Nothing important is missed, rushed, or done in the wrong order.</p>
-          <a href="mailto:hello@thrivepropertyeducation.co.uk" class="offer-link">Book a discovery call &rarr;</a>
+          <span class="offer-tag">Coming Soon</span>
+          <h3>The Renovation Roadmap HMO Edition</h3>
+          <!-- TODO: no HMO description exists on the page yet. Replace this line with approved copy. -->
+          <p>Join the waiting list and we will let you know when it opens.</p>
+          <!-- Kajabi form 2149632375. Its script uses document.write, so it must stay inline inside this container. -->
+          <div class="offer-waitlist" id="hmo-waitlist">
+            <script src="https://thrivepropertyeducation.mykajabi.com/forms/2149632375/embed.js"></script>
+          </div>
+          <div class="offer-actions">
+            <a href="#services" class="btn-outline" data-link="booking" data-event="book_call" data-product="roadmap_hmo">Book a Call</a>
+          </div>
         </div>
       </div>
     </div>
@@ -701,6 +751,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script>
+    // ===== CONFIG: swap links here only =====
+    const STARTER_GUIDE_URL = "REPLACE_ME"; // TODO: Starter Guide checkout link (not available yet)
+    const BOOKING_URL = "REPLACE_ME";       // TODO: booking link, used on all three cards
+    // ===== END CONFIG =====
+
+    // Product buttons: wire hrefs from the config. A link still set to REPLACE_ME goes nowhere.
+    (function wireProductLinks() {
+      const links = { starter_guide: STARTER_GUIDE_URL, booking: BOOKING_URL };
+      document.querySelectorAll('a[data-link]').forEach(function (a) {
+        const url = links[a.dataset.link];
+        if (url && url !== 'REPLACE_ME') { a.setAttribute('href', url); }
+        else { a.dataset.unwired = 'true'; }
+      });
+    })();
+
+    // Tracking: push product CTA clicks to the GTM dataLayer
+    window.dataLayer = window.dataLayer || [];
+    document.addEventListener('click', function (e) {
+      const el = e.target.closest('a[data-event]');
+      if (!el) return;
+      window.dataLayer.push({ event: el.dataset.event, product: el.dataset.product });
+      if (el.dataset.unwired) e.preventDefault();
+    });
+
+    // HMO waiting list (Kajabi inline form, not an iframe, so its submit event is visible to us)
+    (function hmoWaitlist() {
+      const form = document.querySelector('#hmo-waitlist form');
+      if (!form) return;
+      const btn = form.querySelector('.kajabi-form__btn');
+      if (btn) btn.textContent = 'Join the waiting list';
+      form.addEventListener('submit', function () {
+        if (form.checkValidity()) window.dataLayer.push({ event: 'waitlist_submit', product: 'roadmap_hmo' });
+      });
+    })();
+
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries) => {
